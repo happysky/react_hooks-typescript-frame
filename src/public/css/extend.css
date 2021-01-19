@@ -1,0 +1,53 @@
+%ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%ellipsis2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+%ellipsis4 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+
+%flex-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: flex;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    font-size: 0;
+  }
+  &:after {
+    clear: both;
+  }
+
+  .flex-item {
+    float: left;
+    flex: 1;
+  }
+}
+%flex-item {
+  float: left;
+  flex: 1;
+}

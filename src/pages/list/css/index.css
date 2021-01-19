@@ -1,0 +1,77 @@
+@import "../../../public/css/extend.css";
+
+body{
+    background-color: #f5f5f5;
+}
+.listPage {
+  margin-top: 87px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  .result-count{
+    margin: 15px 20px -10px;
+    font-size: 14px;
+    em{
+      color: #c00;
+      font-size: 18px;
+    }
+  }
+  .no-result{
+    text-align: center;
+    margin: 100px auto;
+  }
+  .list {
+    padding: 10px 20px;
+    li {        
+      border-bottom: 1px dashed #eee;
+      a {
+        display: block;
+        padding: 20px 0;
+        h3{
+          color: #00c;
+          em{
+            color: #c00;
+          }
+        }
+        &:hover{
+          h3{            
+            text-decoration: underline;
+          }          
+        }
+      }
+      h3 {
+        font-size: 16px;
+      }
+    }
+  }
+
+    .page {
+        text-align: center;
+        margin: 20px 0;
+        div{
+            display: inline-block;
+            a {
+                float: left;
+                padding: 6px 10px;
+                margin-right: 5px;
+                text-decoration: none;
+                color: #00c;
+                border: #e1e2e3 1px solid;
+
+                &:hover {
+                    background: #f7f5f5;
+                    border: #38f 1px solid;
+                }
+
+                &.active{
+                    background: #f7f5f5;
+                    border: #38f 1px solid;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+.footer {
+  margin-top: 100px;
+}
