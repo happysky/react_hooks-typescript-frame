@@ -15,6 +15,7 @@ module.exports = merge(
             compress: true,
             port: process.env.port || 9000,
             watchContentBase: true,
+            hot: true,
             inline: true,
             compress: true,
             open: true, //是否自动打开浏览器

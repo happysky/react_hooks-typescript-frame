@@ -1,21 +1,17 @@
-var path = require('path');
+const path = require('path');
 const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const { setEntry, setHtmlPlugin } = require('./webpack.util')
 
-const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-    entry: {
-        'index': './src/pages/index/js/index.js',
-        'list': './src/pages/list/js/index.js',
-        'detail': './src/pages/detail/js/index.js'
-    },
+    entry: setEntry,
     output: {
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, '../dist')
     },
     resolve: {
         extensions: [
+            '.tsx',
+            '.ts',
             '.js',
             '.css',
             '.html'
@@ -26,20 +22,23 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js|\.jsx$/,
-                include: path.resolve(__dirname, 'src/'),
+                test: /\.js|\.ts|\.tsx$/,
+                include: path.resolve(__dirname, '../src/'),
                 loader: "babel-loader"
             },
             {
                 test: /\.css$/,
-                include: path.resolve(__dirname, 'src/'),
+                include: path.resolve(__dirname, '../src/'),
                 use: [
                     {
-                        loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
+                        loader: 'style-loader'
                     },
                     //'cache-loader',
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
                     }, {
                         loader: 'postcss-loader'
                     }
@@ -47,7 +46,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif|svg)$/i,
-                include: path.resolve(__dirname, 'src/'),
+                include: path.resolve(__dirname, '../src/'),
                 use: [
                     {
                         loader: 'url-loader',
@@ -95,44 +94,6 @@ module.exports = {
             'window.jQuery': 'jquery',
             'window.$': 'jquery',
         }),
-        new HtmlWebpackPlugin({
-            title: 'test',
-            filename: 'index.html',
-            template: path.resolve(__dirname, 'src/pages/index/index.html'),
-            chunks: ['common', 'index'],
-            minify: true
-        }),
-        new HtmlWebpackPlugin({
-            title: 'test',
-            filename: 'list.html',
-            template: path.resolve(__dirname, 'src/pages/list/index.html'),
-            chunks: ['common', 'list'],
-            minify: {
-                inject: true,
-                removeAttributeQuotes: true,
-                collapseWhitespace: true,
-                html5: true,
-                minifyCSS: true,
-                minifyJS: true,
-                removeComments: true,
-                removeEmptyAttributes: true
-            }
-        }),
-        new HtmlWebpackPlugin({
-            title: 'test',
-            filename: 'detail.html',
-            template: path.resolve(__dirname, 'src/pages/detail/index.html'),
-            chunks: ['common', 'detail'],
-            minify: {
-                inject: true,
-                removeAttributeQuotes: true,
-                collapseWhitespace: true,
-                html5: true,
-                minifyCSS: true,
-                minifyJS: true,
-                removeComments: true,
-                removeEmptyAttributes: true
-            }
-        })
+        ...setHtmlPlugin(),        
     ]
 };

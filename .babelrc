@@ -1,0 +1,17 @@
+{
+    "presets": [       
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "usage",
+                "modules": false, //使用devserver调试的时候需要将此项屏蔽掉，否则 import语法不会转换，会报错
+                "loose": true,
+                "corejs": 3
+            }
+        ],
+        "@babel/preset-react",
+        "@babel/preset-typescript"        
+    ],
+    "plugins": [
+    ]
+}
