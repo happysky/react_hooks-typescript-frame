@@ -6,9 +6,6 @@ module.exports = merge(
     webpackCommon,
     {
         mode: 'development',
-        output: {
-            filename: 'static/js/[name].[hash].js'
-        },
         devServer: {
             host: "0.0.0.0",
             contentBase: path.join(__dirname, 'dist'),

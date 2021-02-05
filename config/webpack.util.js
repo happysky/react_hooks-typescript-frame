@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 function setEntry() {
   const files = glob.sync('./src/pages/*/index.tsx')
-  console.log('files', files);
   const entry = {}
   files.forEach(file => {
     const ret = file.match(/^\.\/src\/pages\/(\S*)\/index\.tsx$/)

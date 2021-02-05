@@ -1,12 +1,11 @@
 import React from 'react'
 import styles from './index.css'
-
-console.log(styles)
+import TitleBar from '../TitleBar'
 
 function App() {
   return (
     <div className={styles.container}>
-      我是PAGE3，Hello World
+      <TitleBar></TitleBar>
     </div>
   )
 }
