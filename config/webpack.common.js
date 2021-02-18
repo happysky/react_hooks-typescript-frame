@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require("webpack");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { setEntry, setHtmlPlugin } = require('./webpack.util')
 
 
@@ -17,7 +18,10 @@ module.exports = {
             '.html'
         ],
         alias: {
-        }
+        },
+        plugins: [
+            new TsconfigPathsPlugin()
+        ]
     },
     module: {
         rules: [
@@ -93,7 +97,7 @@ module.exports = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
             'window.$': 'jquery',
-        }),
+        }),        
         ...setHtmlPlugin(),        
     ]
 };
