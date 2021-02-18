@@ -1,0 +1,57 @@
+.lists {
+    padding-bottom: 80px;
+    ul{
+        li{
+            position: relative;
+            border-bottom: #ebebeb solid 1px;
+
+            h3 {
+                color: #000;
+                font-size: 15px;
+            }
+
+            .poiItem {
+                position: relative;
+                display: block;
+                padding: 15px 100px 15px 20px;
+                text-decoration: none;
+            }
+            .poiItem::before {
+                content: "到这去";
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                width: 43px;
+                height: 40px;
+                background: url(https://p1.ssl.qhimg.com/t015ba2b944e3ffd2a8.png) no-repeat center center;
+                margin-top: -28px;
+                color: #666;
+                line-height: 90px;
+                background-size: 25px;
+                font-size: 12px;
+                text-align: center;
+            }
+
+            .tel {
+                position: absolute;
+                right: 60px;
+                top: 50%;
+                width: 43px;
+                height: 40px;
+                background: url(https://p1.ssl.qhimg.com/t01e7f08d0591e8b552.png) no-repeat center center;
+                margin-top: -26px;
+                color: #666;
+                line-height: 90px;
+                background-size: 25px;
+                font-size: 12px;
+                text-align: center;
+                text-decoration: none;
+            }
+
+            p {
+                color: #ababab;
+                line-height: 24px;
+            }
+        }
+    }
+}

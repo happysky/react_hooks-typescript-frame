@@ -39,8 +39,15 @@ function setHtmlPlugin() {
     const ret = file.match(/^\.\/src\/pages\/(\S*)\/index\.tsx$/)
     if (ret) {
       const name = ret[1]
+      
+      let templateConfig = {}
+      try{
+        templateConfig = require(`../src/pages/${name}/templateConfig.js`)
+      }catch(e){}
+      
       options.push(new HtmlWebpackPlugin({
         filename: `${name}.html`,
+        title: templateConfig.title || '',
         template: getTemplate(name),
         chunks: ['react_vendors', name, '[name]/index.css']
       }))

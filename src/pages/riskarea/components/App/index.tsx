@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState, useRef, useReducer} from 'react'
 import styles from './index.css'
-import TitleBar from '../TitleBar'
-import Banner from '../Banner'
+import TitleBar from '../../../index/components/TitleBar'
+import Banner from '../../../index/components/Banner'
 import Tab from '../Tab'
 import List from '../List'
 import axios from 'utils/http'
@@ -64,8 +64,8 @@ function App() {
 
     return (
         <div className={styles.container}>
-            <TitleBar type="nucleic"></TitleBar>
-            <Banner type="nucleic"></Banner>
+            <TitleBar type="riskarea"></TitleBar>
+            <Banner type="riskarea"></Banner>
             <Tab></Tab>
             <List poi={poiList}></List>
         </div>
