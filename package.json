@@ -33,6 +33,7 @@
     "html-webpack-plugin": "4.5.1",
     "image-webpack-loader": "7.0.1",
     "postcss": "8.2.4",
+    "postcss-aspect-ratio": "1.0.2",
     "postcss-extend": "1.0.5",
     "postcss-import": "14.0.0",
     "postcss-loader": "4.1.0",
