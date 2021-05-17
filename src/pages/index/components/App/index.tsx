@@ -23,7 +23,6 @@ function App() {
     }
 
     const getData = function(){
-        console.log('getData', locationRef.current)
         var city = locationRef.current.city;
         var self = this;
         var params = {
@@ -45,7 +44,6 @@ function App() {
             dataType: 'jsonp',
             params
         }).then((response)=>{
-            console.log('response', response)
             if(!(response && response.poi)){
                 return false;                
             }
@@ -67,7 +65,7 @@ function App() {
             <TitleBar type="nucleic"></TitleBar>
             <Banner type="nucleic"></Banner>
             <Tab></Tab>
-            <List poi={poiList}></List>
+            <List poi={poiList}></List>            
         </div>
     )
 }

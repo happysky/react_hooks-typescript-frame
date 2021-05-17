@@ -32,8 +32,6 @@ axiosInstance.interceptors.request.use(
             })
         }
 
-        console.log('config', config)
-
 
         if (config.dataType === 'jsonp') {
             config.adapter = jsonpAdapter
