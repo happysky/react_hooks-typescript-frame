@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require("webpack");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { setEntry, setHtmlPlugin } = require('./webpack.util')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production'
 
 
 module.exports = {
@@ -35,7 +37,7 @@ module.exports = {
                 include: path.resolve(__dirname, '../src/'),
                 use: [
                     {
-                        loader: 'style-loader'
+                        loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
                     },
                     //'cache-loader',
                     {

@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const WebpackCDNPlugin = require('webpack4-cdn-plugin')
 const QCdn = require('@q/qcdn')
 var webpackCommon = require('./webpack.common')
-//var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
 
@@ -19,6 +19,10 @@ module.exports = merge(
         },
         plugins: [
             new CleanWebpackPlugin(),
+            new MiniCssExtractPlugin({
+                filename: "static/css/[name].[contenthash].css",
+                chunkFilename: "static/css/[id].[contenthash].css"
+            }),
             new WebpackCDNPlugin({
                 // whether to keep generated files (on local fs), default: `false`
                 keepLocalFiles: false,
