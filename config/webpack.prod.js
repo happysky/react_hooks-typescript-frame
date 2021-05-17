@@ -34,7 +34,7 @@ module.exports = merge(
                 // `params.content`: `String | Buffer`
                 // `params.extname`: file extension
                 // `params.file`: original file (with path)
-                uploadContent: async ({ content, extname, file })=>{
+                uploadContent: ({ content, extname, file })=>{
                     /**
                      * Return falsy value means that you want to KEPP the
                      * file as it is. This usually happens with certain
@@ -53,7 +53,7 @@ module.exports = merge(
                         return false
                     }
             
-                    const cdnFile = await QCdn.content(content, extname, {
+                    const cdnFile = QCdn.content(content, extname, {
                         https: true,
                         static: {
                             domains: [
